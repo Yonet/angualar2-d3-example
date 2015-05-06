@@ -12,16 +12,17 @@ angular.module('app')
 				var divs = graph.append("div").attr("class", "chart")
 					.selectAll('div');
 
-				scope.$watch('data',function(data){
-					console.log('data',data);
+				var render = function(data) {
 					if(!data) return;
 
 					divs.data(data).enter().append('div')
 						.transition().ease("elastic")
          				.style("width", function(d) { return d + "%"; })
          				.text(function(d) { return d + "%"; });
-         				
-				}, true);
+
+				};
+
+				scope.$watch('data',render, true);
 
 			}
 			
