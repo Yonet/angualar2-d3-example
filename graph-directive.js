@@ -2,7 +2,8 @@ angular.module('app')
 	.directive('barGraph', function(){
 		return {
 			scope: {
-				data: '=graphData'
+				data: '=graphData',
+				accessor: '&'
 			},
 			link: function(scope, element, attrs) {
 
@@ -18,8 +19,8 @@ angular.module('app')
 
 					divs.data(data).enter().append('div')
 						.transition().ease("elastic")
-         				.style("width", function(d) { return d + "%"; })
-         				.text(function(d) { return d + "%"; });
+         				.style("width", function(d) { return scope.accessor({d:d}) + "%"; })
+         				.text(function(d){ return scope.accessor({d:d})});
 
 				};
 

@@ -46,23 +46,17 @@
 	<body ng-app="app">
 		<div ng-controller="DashboardController">
 			<bar-graph
-				graph-data="graphData"
+				graph-data="data"
 				width="900"
 				height="1000"
+				accessor="d.value"
 			>
 			</bar-graph>
 			<md-button class="md-accent md-hue-1">Click me</md-button>
 			<input type="text" ng-submit="addToData(newValue)" ng-model="newValue">
 			<!-- <chord matrix=""></chord> -->
 			<donut-chart data="graphData"></donut-chart>	
-			<!-- <div layout="row" layout-sm="column">
-			  <div flex>
-			    I'm above on mobile, and to the left on larger devices.
-			  </div>
-			  <div flex>
-			    I'm below on mobile, and to the right on larger devices.
-			  </div>
-			</div> -->
+			
 			
 		</div>
 		
